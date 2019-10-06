@@ -1,0 +1,16 @@
+{
+  "CN": "system:node:worker-0",
+  "key": {
+    "algo": "rsa",
+    "size": 2048
+  },
+  "names": [
+    {
+      "C": "ES",
+      "L": "Valencia",
+      "O": "system:nodes",
+      "OU": "KubernetesCA",
+      "ST": "C.Valenciana"
+    }
+  ]
+}

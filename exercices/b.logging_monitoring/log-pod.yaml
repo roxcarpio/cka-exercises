@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: generator-random-numbers
+spec:
+  containers:
+  - name: count
+    image: busybox
+    env:
+    - name: FLOOR
+      value: "10"
+    - name: CEILING
+      value: "200"
+    - name: RANGE
+      value: $(($CEILING-$FLOOR+1))      
+    args:
+    - /bin/sh
+    - -c
+    - >
+      while true;
+      do
+        RANGE=$(($CEILING-$FLOOR+1))
+        echo "You will generate a random number between $FLOOR and $CEILING (both inclusive). There are $RANGE possible numbers!"
+        RESULT=$(($FLOOR + RANDOM % $CEILING))
+        echo "Congratulations! You just generated a random number ($RESULT) the is in between $FLOOR and $CEILING (inclusive)";
+        sleep 2;
+      done

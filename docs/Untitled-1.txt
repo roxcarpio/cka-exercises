@@ -1,0 +1,35 @@
+    # Update the package manager and install some dependencies
+    sudo apt-get update -y && sudo apt-get install -y apt-transport-https curl
+    
+    # Install runtime
+    sudo apt-get install docker.io -y
+
+    # Install kubelet, kubectl  and kubeadm version 1.14.6 using sudo
+    curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
+    cat <<EOF >/etc/apt/sources.list.d/kubernetes.list
+    deb https://apt.kubernetes.io/ kubernetes-xenial main
+    EOF
+    apt-get update
+    apt-get install -y kubelet=1.15.0-00 kubeadm=1.15.0-00 kubectl=1.15.0-00
+    apt-mark hold kubelet kubeadm kubectl
+
+    # Restore certificates
+    sudo mkdir -p /etc/kubernetes/
+    sudo cp -r backup/pki /etc/kubernetes/
+
+    # Restore etcd backup
+    sudo mkdir -p /var/lib/etcd
+    sudo docker run --rm \
+        -v $(pwd)/backup:/backup \
+        -v /var/lib/etcd:/var/lib/etcd \
+        --env ETCDCTL_API=3 \
+        k8s.gcr.io/etcd:3.3.10 \
+        /bin/sh -c "etcdctl snapshot restore '/backup/etcd-snapshot-latest.db' ; mv /default.etcd/member/ /var/lib/etcd/"
+
+    # Restore kubeadm-config
+    sudo mkdir /etc/kubeadm
+    sudo cp backup/kubeadm-config.yaml /etc/kubeadm/
+
+    # Initialize the master with backup
+    sudo kubeadm init --ignore-preflight-errors=DirAvailable--var-lib-etcd \
+        --config /etc/kubeadm/kubeadm-config.yaml    
