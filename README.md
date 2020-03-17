@@ -1,4 +1,4 @@
-# CKA Exercices
+# CKA Exercises
 A set of exercises that helped me prepare for the Certified Kubernetes Application exam, offered by the Cloud Native Computing Foundation, organized by curriculum domain. They may as well serve as learning and practicing with Kubernetes.
 
 Each chapter provides:
