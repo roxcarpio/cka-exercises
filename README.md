@@ -1,7 +1,12 @@
-# cka-exercises
+# CKA Exercices
+A set of exercises that helped me prepare for the Certified Kubernetes Application exam, offered by the Cloud Native Computing Foundation, organized by curriculum domain. They may as well serve as learning and practicing with Kubernetes.
 
-![Under Construction](https://cdn1.vectorstock.com/i/1000x1000/78/80/website-under-construction-vector-21727880.jpg)
+Each chapter provides:
+- Theory.
+- Additional links.
+- Exercises.
 
+> ⚠️ Work is in progress and only few sections have the final version.
 
 ## Contents
 
@@ -15,3 +20,10 @@
 - [Core Concepts - 19%](docs/h.core_concepts.md)
 - [Networking - 11%](docs/i.networking.md)
 - [Installation, Configuration & Validation - 12%](docs/j.installation_configuration_validation.md)
+
+## Have you seen an error? Would you like to add more exercices?
+Create a PR with the solution or the alternative, but please stick to the existing format.
+
+## References
+- [here](https://github.com/dgkanatsios/CKAD-exercises) from dgkanatsios.
+
