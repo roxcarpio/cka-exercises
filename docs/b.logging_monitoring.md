@@ -7,13 +7,6 @@
 * [Manage cluster component logs.](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-cluster/#looking-at-logs)
 * [Manage application logs.](https://kubernetes.io/docs/concepts/cluster-administration/logging/)
 
-number of healthy nodes
-Deploy the metrics servers in kubernets... Give some time to see the metrics and then use kubectl get top
-Once you do remember to wait for atleast 5 minutes to allow the metrics-server enough time to collect and report performance metrics.
-kubectl top pod POD_NAME --containers               # Show metrics for a given pod and its containers
-
-## Extra Links
-
 ### Exercice
 
 1. Install the Kubernetes Metrics Server
@@ -29,7 +22,7 @@ kubectl top pod POD_NAME --containers               # Show metrics for a given p
     </p>
     </details>
 
-1. Check how many nodes your cluster. Describe one.
+1. Check how many nodes your cluster have. Describe one.
     <details><summary>show</summary>
     <p>
 
@@ -85,7 +78,7 @@ kubectl top pod POD_NAME --containers               # Show metrics for a given p
     </p>
     </details>     
 
-1. Check the number of pods running in the cluster.
+1. Check the number of pods running in one node.
     <details><summary>show</summary>
     <p>
 
@@ -96,35 +89,33 @@ kubectl top pod POD_NAME --containers               # Show metrics for a given p
     </p>
     </details>  
 
-1. Check the request and limits resources of the API server pod.
+1. Check the request and limits memory of the API server pod.
     <details><summary>show</summary>
     <p>
 
     ```bash
     kubectl describe pods <API_SERVER_POD_NAME>
     # Check the resources tag
+    
+    or
+
+    kubectl get pods -n kube-system -o=jsonpath='{.metadata.name}{"\t"}{.spec.containers[*].resources.requests.memory}{"\t"}{.spec.containers[*].resources.limits.memory}' <API_SERVER_POD_NAME>
     ```
 
     </p>
     </details>
 
-1. Create the following pod. <LINK depployment>. Print Logs for a Container in a Pod 
-    <details><summary>show</summary>
-    <p>
+1. Create the following pod. Print Logs for a Container in a Pod
 
     ```bash
-    kubectl logs nginx-monitoring-65448542
+    kubectl create -f https://raw.githubusercontent.com/roxcarpio/cka-exercises/master/exercices/b.logging_monitoring/log-pod.yaml
     ```
 
-    </p>
-    </details>
-
-1. Print logs for all Pods with label app=nginx
     <details><summary>show</summary>
     <p>
 
     ```bash
-    solution
+    kubectl logs generator-random-numbers
     ```
 
     </p>
@@ -135,118 +126,8 @@ kubectl top pod POD_NAME --containers               # Show metrics for a given p
     <p>
 
     ```bash
-    kubectl logs nginx-78f5d695bd-czm8z --since=30s
+    kubectl logs generator-random-numbers --since=30s
     ```
 
     </p>
     </details>
-
-1. HOLI
-    <details><summary>show</summary>
-    <p>
-
-    ```bash
-    solution
-    ```
-
-    </p>
-    </details>
-
-1. HOLI
-    <details><summary>show</summary>
-    <p>
-
-    ```bash
-    solution
-    ```
-
-    </p>
-    </details>
-
-1. HOLI
-    <details><summary>show</summary>
-    <p>
-
-    ```bash
-    solution
-    ```
-
-    </p>
-    </details>
-
-1. HOLI
-    <details><summary>show</summary>
-    <p>
-
-    ```bash
-    solution
-    ```
-
-    </p>
-    </details>
-
-1. HOLI
-    <details><summary>show</summary>
-    <p>
-
-    ```bash
-    solution
-    ```
-
-    </p>
-    </details>
-
-1. HOLI
-    <details><summary>show</summary>
-    <p>
-
-    ```bash
-    solution
-    ```
-
-    </p>
-    </details>
-
-1. HOLI
-    <details><summary>show</summary>
-    <p>
-
-    ```bash
-    solution
-    ```
-
-    </p>
-    </details>
-
-1. HOLI
-    <details><summary>show</summary>
-    <p>
-
-    ```bash
-    solution
-    ```
-
-    </p>
-    </details>
-
-1. HOLI
-    <details><summary>show</summary>
-    <p>
-
-    ```bash
-    solution
-    ```
-
-    </p>
-    </details>
-
-1. HOLI
-    <details><summary>show</summary>
-    <p>
-
-    ```bash
-    solution
-    ```
-
-    </p>
-    </details>     
