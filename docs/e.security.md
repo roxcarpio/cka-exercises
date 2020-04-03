@@ -8,9 +8,9 @@
 * [Understand Kubernetes security primitives.](https://kubernetes.io/docs/concepts/policy/pod-security-policy/)
 * [Know to configure network policies.](https://kubernetes.io/docs/concepts/services-networking/network-policies/)
 * [Create and manage TLS certificates for cluster components.](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet-tls-bootstrapping/)
-* Work with images securely.
+* [Work with images securely.](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/)
 * [Define security contexts.](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/) 
-* Secure persistent key value store.
+* [Secure persistent key value store.](https://kubernetes.io/docs/tasks/administer-cluster/configure-upgrade-etcd/)
 
 ## Extra Links
 * [Kubernetes Network Policy Recipes](https://github.com/ahmetb/kubernetes-network-policy-recipes)
@@ -19,7 +19,7 @@
 
 ## Exercices
 
-1. Create a service account called sa-security-example (Katacoda).
+1. Create a service account called sa-security-example.
     <details><summary>show</summary>
     <p>
 
@@ -30,7 +30,7 @@
     </p>
     </details>
 
-1. Curl the API server using the sa-security-example service account (Katacoda)
+1. Curl the API server using the sa-security-example service account.
     <details><summary>show</summary>
     <p>
 
@@ -51,7 +51,7 @@
     </p>
     </details>   
 
-1. Use a [x509 client certificate](https://kubernetes.io/docs/reference/access-authn-authz/authentication/#x509-client-certs) to authenticate API requests. (Katacoda)
+1. Use a [x509 client certificate](https://kubernetes.io/docs/reference/access-authn-authz/authentication/#x509-client-certs) to authenticate API requests.
     <details><summary>show</summary>
     <p>
 
@@ -94,7 +94,7 @@
     </p>
     </details>   
 
-1. Use a [Static Password File](https://kubernetes.io/docs/reference/access-authn-authz/authentication/#static-password-file) to authenticate API requests. (Katacoda)
+1. Use a [Static Password File](https://kubernetes.io/docs/reference/access-authn-authz/authentication/#static-password-file) to authenticate API requests.
     <details><summary>show</summary>
     <p>
 
@@ -214,7 +214,7 @@
     </p>
     </details> 
 
-1. Grant only read access to secrets within the eve-ns to user eve-ns.
+1. Grant only read access to secrets within the eve-ns to user eve.
     <details><summary>show</summary>
     <p>
 
@@ -293,7 +293,6 @@
     <p>
 
     ```bash
-
     # Change the ClusterRole and the ClusterRoleBinding configuration files
     vim impersonate-files.yaml
 
@@ -335,7 +334,7 @@
     </p>
     </details>
 
-1. Use the following environment: `curl -s "https://raw.githubusercontent.com/roxcarpio/cka-exercises/master/exercices/e.security/networkPolicy1.sh" | bash`. Test that the traffic between the nginx-a pod and the nginx-b pod is blocked (from nginx-a to nginx-b and from nginx-b to nginx-a). Create a network policy that allows the nginx-b pod talk with nginx-a. 
+1. Use the following environment: `curl -s "https://raw.githubusercontent.com/roxcarpio/cka-exercises/master/exercices/e.security/networkPolicy1.sh" | bash`. Test that the traffic between the nginx-a pod and the nginx-b pod is blocked [from nginx-a to nginx-b and from nginx-b to nginx-a]. Create a network policy that allows the nginx-b pod talk with nginx-a. 
 
     <details><summary>show</summary>
     <p>
@@ -377,7 +376,7 @@
     </p>
     </details>
 
-1. Use the following environment: `curl -s "https://raw.githubusercontent.com/roxcarpio/cka-exercises/master/exercices/e.security/networkPolicy2.sh" | bash`. Test the traffic between all the pods. Create a network policy that allows pods from the ui-development namespace talk with pods in the development namespace.
+1. Use the following environment: `curl -s "https://raw.githubusercontent.com/roxcarpio/cka-exercises/master/exercices/e.security/networkPolicy2.sh" | bash`. Test the traffic between all the pods. Create a network policy that allows pods from the **ui-development** namespace talk with pods in the **development** namespace.
 ![Exercice-10](../pictures/test.jpg)
 
     <details><summary>show</summary>
@@ -582,67 +581,6 @@
           volumes:
           - name: cache-volume
             emptyDir: {}    
-    ```
-
-    </p>
-    </details>
-
-1. Hola --------
-    <details><summary>show</summary>
-    <p>
-
-    ```bash
-    ----
-    ```
-
-    </p>
-    </details>
-
-1. Hola --------
-    <details><summary>show</summary>
-    <p>
-
-    ```bash
-    ----
-    ```
-
-    </p>
-    </details>
-
-1. Hola --------
-    <details><summary>show</summary>
-    <p>
-
-    ```bash
-    ----
-    ```
-
-    </p>
-    </details>
-
-1. Hola --------
-    <details><summary>show</summary>
-    <p>
-
-    ```bash
-    ----
-    ```
-
-    </p>
-    </details>                            
-
-1. Cleanup
-    <details><summary>show</summary>
-    <p>
-
-    ```bash
-    kubectl delete ns sa-gitlab
-    rm -rf $HOME/x509-exercice
-    rm -rf /etc/kubernetes/static-users
-    Clean the API Sever
-    rm -rf $HOME/static-exercice
-    kubectl delete -f impersonate-files.yaml
-    kubectl delete ns network-policy-test-1
     ```
 
     </p>

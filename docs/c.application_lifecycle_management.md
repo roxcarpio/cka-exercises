@@ -146,7 +146,7 @@
     </p>
     </details>  
 
-1. Auto scale the nginx-test deployment , with the number of pods between 1 and 5, target CPU utilization at 30%:
+1. Auto scale the nginx-test deployment, with the number of pods between 1 and 5, target CPU utilization at 30%:
     <details><summary>show</summary>
     <p>
 
@@ -183,6 +183,17 @@
     </p>
     </details> 
 
+1. Remove the nginx-test deployment.
+    <details><summary>show</summary>
+    <p>
+
+    ```bash
+    kubectl remove deploy nginx-test
+    ```
+
+    </p>
+    </details> 
+
 1. Create a configmap called config-files from the configmap-files directory with the following files. Check the configmap content.
 
     Create the files with
@@ -204,7 +215,7 @@
     </p>
     </details>
 
-1. Mount the previous configmap in a nginx pod on /mnt/space-game. Check the files inside the pod.
+1. Mount the previous configmap in a nginx pod under `/mnt/space-game`. Check the files inside the pod.
 
     <details><summary>show</summary>
     <p>
@@ -236,7 +247,6 @@
       - name: game-volume # just a name, you'll reference this in the pod
         configMap:
           name: config-files # name of your configmap
-    status: {}
     ```
     ```bash
     kubectl create -f pod.yaml
@@ -246,7 +256,7 @@
     </p>
     </details>    
 
-1. Modify the previous configmap (e.g change the LICENSE file). Check that the file has been updated automatically in the nginx pod.
+1. Modify the previous configmap (e.g change the LICENSE file). Check that the file has been updated automatically in the nginx pod. Remove the configmap and the pod
 
     <details><summary>show</summary>
     <p>
@@ -256,12 +266,15 @@
     kubectl edit configmaps config-files
     # Kubernetes needs some time for updating the file
     kubectl exec nginx -- sh -c 'cat /mnt/space-game/LICENSE' # Check updated value
+
+    kubectl delete pod nginx
+    kubectl delete cm config-files
     ```
 
     </p>
     </details>
 
-1. Create and display a configmap called configmap-two-files from the following two files
+1. Create and display a configmap called configmap-two-files from the following two files.
 
     Create the files with:
 
@@ -281,7 +294,7 @@
     </p>
     </details>
 
-1. Create a ConfigMap from an env-file:
+1. Create a ConfigMap from an env-file.
 
     Create the file with the command:
 
@@ -300,7 +313,7 @@
     </p>
     </details>
 
-1. When passing `--from-env-file` multiple times to create a ConfigMap from multiple data sources, only the last env-file is used, test it:
+1. When passing `--from-env-file` multiple times to create a ConfigMap from multiple data sources, only the last env-file is used, test it.
 
     Create the files with the command:
 
@@ -329,9 +342,9 @@
     </p>
     </details>
 
-1. Create a configmap from a file and set up the key to password-special
-    Create the file with the command
+1. Create a configmap from a file and set up the key to password-special.
 
+    Create the file with the command:
     ```bash
     echo -e "test123" > password
     ```    
@@ -478,7 +491,7 @@ Note that the JSON spec doesn’t support octal notation, therefore, translate t
     </details>
 
 
-1. Create a secret called mysecret3 manually using YAML files. This secret saves two strings: username and password. Get the value of mysecret3.
+1. Create a secret called my-secret-1 manually using YAML files. This secret saves two strings: username and password. Get the value of my-secret-1.
 
 
     <details><summary>show</summary>
@@ -489,7 +502,7 @@ Note that the JSON spec doesn’t support octal notation, therefore, translate t
     echo -n 'pepe' | base64
     echo -n 'pepito123' | base64
 
-    kubectl create secret generic mysecret3  --from-literal=username=xx --from-literal=password=xxx --dry-run -o yaml > secret.yaml
+    kubectl create secret generic my-secret-1  --from-literal=username=xx --from-literal=password=xxx --dry-run -o yaml > secret.yaml
     vim secret.yaml
     ```
 
@@ -501,12 +514,12 @@ Note that the JSON spec doesn’t support octal notation, therefore, translate t
     kind: Secret
     metadata:
       creationTimestamp: null
-      name: mysecret3
+      name: my-secret-1
     ```
 
     ```bash
     kubectl create -f secret.yaml
-    kubectl get secrets mysecret3 -o yaml
+    kubectl get secrets my-secret-1 -o yaml
 
     echo 'cGVwZQ==' | base64 -d # shows 'pepe'
     echo 'cGVwaXRvMTIz' | base64 -d # shows 'pepito123'
@@ -515,7 +528,7 @@ Note that the JSON spec doesn’t support octal notation, therefore, translate t
     </p>
     </details>
 
-1. Create a secret called mysecret4 with unencoded strings using the stringData map.
+1. Create a secret called my-secret-2 with unencoded strings using the stringData map.
     > The stringData field is provided for convenience, and allows you to provide secret data as unencoded strings.
     
     String data example: 
@@ -527,7 +540,7 @@ Note that the JSON spec doesn’t support octal notation, therefore, translate t
     <p>
 
     ```bash
-    kubectl create secret generic mysecret4 --from-literal=app_url=x --from-literal=username=x --from-literal=password=x --dry-run -o yaml > secret.yaml
+    kubectl create secret generic my-secret-2 --from-literal=app_url=x --from-literal=username=x --from-literal=password=x --dry-run -o yaml > secret.yaml
     vim secret.yaml
     ```
 
@@ -542,7 +555,7 @@ Note that the JSON spec doesn’t support octal notation, therefore, translate t
     kind: Secret
     metadata:
       creationTimestamp: null
-      name: mysecret4
+      name: my-secret-2
     ```
 
     to:
@@ -556,12 +569,12 @@ Note that the JSON spec doesn’t support octal notation, therefore, translate t
     kind: Secret
     metadata:
       creationTimestamp: null
-      name: mysecret4
+      name: my-secret-2
     ```
 
     ```bash
     kubectl create -f secret.yaml
-    kubectl get secrets mysecret4 -o yaml
+    kubectl get secrets my-secret-2 -o yaml
 
     echo 'aHR0cDovL3d3d3cubXktYXBwLmNvbQ==' | base64 -d # shows 'http://wwww.my-app.com'
     echo 'bG9sYQ==' | base64 -d # shows 'lola'
@@ -593,7 +606,7 @@ Note that the JSON spec doesn’t support octal notation, therefore, translate t
       apiVersion: v1
       kind: Secret
       metadata:
-        name: mysecret5
+        name: my-secret-3
       type: Opaque
       data:
         username: YWxpZW4=
@@ -604,7 +617,7 @@ Note that the JSON spec doesn’t support octal notation, therefore, translate t
 
       ```bash
       kubectl create -f secret.yaml
-      kubectl get secrets mysecret5 -o yaml
+      kubectl get secrets my-secret-3 -o yaml
 
       echo 'Y293Ym95' | base64 -d # shows 'cowboy'
       ```
@@ -612,7 +625,7 @@ Note that the JSON spec doesn’t support octal notation, therefore, translate t
       </p>
       </details>
 
-1. Create a new service account. Add imagePullsecrets to the already created service account. Create a nginx pod that uses the previous service. Describe the pod in order to see the imagePullPolicy.
+1. Create a service account. Add imagePullsecrets to the already created service account. Create a nginx pod that uses the previous service. Describe the pod in order to see the imagePullPolicy.
 
     <details><summary>show</summary>
     <p>
