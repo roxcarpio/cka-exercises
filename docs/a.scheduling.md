@@ -2,26 +2,26 @@
 
 ## Curriculum
 
-* [Use label selectors to schedule Pods.](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/)
-* [Understand the role of DaemonSets.](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/)
-* [Understand how resource limits can affect Pods scheduling.](https://kubernetes.io/docs/tasks/administer-cluster/manage-resources/memory-default-namespace/)
-* [Understand how to run multiple schedulers and how to configure Pods to use them.](https://kubernetes.io/docs/tasks/administer-cluster/configure-multiple-schedulers/)
-* [Manually schedule a pod without a scheduler.](https://kubernetes.io/docs/concepts/configuration/assign-pod-node/)
-* [Display scheduler events.](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application-introspection/)
-* [Know how to configure the Kubernetes scheduler.](https://kubernetes.io/docs/concepts/scheduling/kube-scheduler/)
+* Use label selectors to schedule Pods. [![en](../icons/united-kingdom.png)](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/) [![es](../icons/spain.png)](https://kubernetes.io/es/docs/concepts/overview/working-with-objects/labels/) 
+* Understand the role of DaemonSets. [![en](../icons/united-kingdom.png)](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) [![es](../icons/spain.png)](https://kubernetes.io/es/docs/concepts/workloads/controllers/daemonset/)
+* Understand how resource limits can affect Pods scheduling. [![en](../icons/united-kingdom.png)](https://kubernetes.io/docs/tasks/administer-cluster/manage-resources/memory-default-namespace/)
+* Understand how to run multiple schedulers and how to configure Pods to use them. [![en](../icons/united-kingdom.png)](https://kubernetes.io/docs/tasks/administer-cluster/configure-multiple-schedulers/)
+* Manually schedule a pod without a scheduler. [![en](../icons/united-kingdom.png)](https://kubernetes.io/docs/concepts/configuration/assign-pod-node/)
+* Display scheduler events. [![en](../icons/united-kingdom.png)](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application-introspection/)
+* Know how to configure the Kubernetes scheduler. [![en](../icons/united-kingdom.png)](https://kubernetes.io/docs/concepts/scheduling/kube-scheduler/)
 
 ## Extra Links
 * [Kubernetes.io - Managing Compute Resources for Containers.](https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container)
 
-### Exercice
+### Exercise
 
-1. Create the following enviroment for the next exercices.
+1. Create the following environment for the next exercises.
 
     ```bash
     kubectl run --generator=run-pod/v1 nginx-1 --image=nginx --labels=tier=frontend,env=dev,author=john
     kubectl run --generator=run-pod/v1 nginx-2 --image=nginx --labels=tier=download-service,env=dev,author=eve
     kubectl run --generator=run-pod/v1 nginx-3 --image=nginx --labels=tier=chat-ui,env=dev,author=eve
-    kubectl run --generator=run-pod/v1 nginx-4 --image=nginx --labels=tier=fronend,env=prod,author=john
+    kubectl run --generator=run-pod/v1 nginx-4 --image=nginx --labels=tier=frontend,env=prod,author=john
     ```
 
     1. List pods and show labels for all pods
@@ -35,13 +35,13 @@
         nginx-1   1/1     Running   0          28s   author=john,env=dev,tier=frontend
         nginx-2   1/1     Running   0          28s   author=eve,env=dev,tier=download-service
         nginx-3   1/1     Running   0          28s   author=eve,env=dev,tier=chat-ui
-        nginx-4   1/1     Running   0          27s   author=john,env=prod,tier=fronend
+        nginx-4   1/1     Running   0          27s   author=john,env=prod,tier=frontend
         ```
 
         </p>
         </details>
 
-    1. List pods with label `env=dev`
+    1. List pods with label `env=dev`.
         <details><summary>show</summary>
         <p>
 
@@ -57,7 +57,7 @@
         </p>
         </details>
 
-    1. List pods with label `author!=john`
+    1. List pods with label `author!=john`.
         <details><summary>show</summary>
         <p>
 
@@ -72,7 +72,7 @@
         </p>
         </details>
 
-    1. List pods with label `author=eve` and `tier!=chat-ui`
+    1. List pods with label `author=eve` and `tier!=chat-ui`.
         <details><summary>show</summary>
         <p>
 
@@ -134,7 +134,7 @@
         </p>
         </details>    
 
-    1. Delete all pods for cleaning the enviroment
+    1. Delete all pods for cleaning the environment.
         <details><summary>show</summary>
         <p>
 
@@ -173,7 +173,7 @@
     </p>
     </details>
 
-1. Create a taint on `node01` with key of 'author', value of 'john' and effect of 'NoSchedule'
+1. Create a taint on `node01` with key of 'author', value of 'john' and effect of 'NoSchedule'.
     <details><summary>show</summary>
     <p>
 
@@ -184,7 +184,7 @@
     </p>
     </details>
 
-1. Create a pod named `nginx-5` with the NGINX image, which has a toleration set equal to the taint "john"
+1. Create a pod named `nginx-5` with the NGINX image, which has a toleration set equal to the taint "john".
     <details><summary>show</summary>
     <p>
 
@@ -295,7 +295,7 @@
     </p>
     </details>
 
-1. Create a deployment named `nginx-7` with the NGINX image, which has cpu requests to "200m" and memory limits to "512Mi"
+1. Create a deployment named `nginx-7` with the NGINX image, which has cpu requests to "200m" and memory limits to "512Mi".
     <details><summary>show</summary>
     <p>
 
@@ -471,7 +471,7 @@
       resourceNames:
       - kube-scheduler
       # Add this line
-      - my scheduler
+      - my-scheduler
       resources:
       - endpoints
       verbs:
@@ -480,9 +480,8 @@
       - patch
       - update    
 
-    # Create a pod without specifing a scheduler
-    vim pod1.yaml
-
+    # Create a pod without specifying a scheduler
+    cat <<EOF | kubectl apply -f -
     apiVersion: v1
     kind: Pod
     metadata:
@@ -493,11 +492,10 @@
       containers:
       - name: pod-with-no-annotation-container
         image: k8s.gcr.io/pause:2.0
+    EOF
 
-    kubectl create -f pod1.yaml
-
-    # Create a pod and specify the default scheduler
-    vim pod2.yaml
+    # Create a pod specifying the default scheduler
+    cat <<EOF | kubectl apply -f -
     apiVersion: v1
     kind: Pod
     metadata:
@@ -507,26 +505,26 @@
     spec:
       schedulerName: default-scheduler
       containers:
-      - name: pod-with-default-annotation-container
+      - name: pod-with-default-scheduler
         image: k8s.gcr.io/pause:2.0
+    EOF
 
     kubectl create -f pod2.yaml 
 
     # Create a pod and specify the second scheduler   
-    vim pod3.yaml
+    cat <<EOF | kubectl apply -f -
     apiVersion: v1
     kind: Pod
     metadata:
-      name: annotation-second-scheduler
+      name: annotation-my-scheduler
       labels:
         name: multischeduler-example
     spec:
       schedulerName: my-scheduler
       containers:
-      - name: pod-with-default-annotation-container
+      - name: pod-with-my-scheduler
         image: k8s.gcr.io/pause:2.0
-
-    kubectl create -f pod3.yaml
+    EOF
 
     # Verify that all pods are running
     kubectl get pods

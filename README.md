@@ -27,3 +27,6 @@ Create a PR with the solution or the alternative, but please stick to the existi
 ## References
 - [here](https://github.com/dgkanatsios/CKAD-exercises) from dgkanatsios.
 
+For reading the spanish readme, go here [![es](icons/spain.png)](README-es.md).
+
+<sup>Icons used in this repository has been made by [Good Ware](https://www.flaticon.com/authors/good-ware) from [Flaticon](www.flaticon.com)</sup>
