@@ -1,7 +1,7 @@
 # Troubleshooting (10%)
 
 TBC
-### Exercice
+### Exercise
 
 <details><summary>show</summary>
 <p>

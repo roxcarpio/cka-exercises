@@ -1,16 +1,16 @@
 # Cluster (11%)
 
 ## Curriculum
-* [Understand Kubernetes cluster upgrade process.](https://kubernetes.io/docs/tasks/administer-cluster/cluster-management/#upgrading-a-cluster)
-   * [Kubeadm upgrade](https://kubernetes.io/docs/reference/setup-tools/kubeadm/kubeadm-upgrade/)
-   * [Kubeadm Upgrade 1.14](https://kubernetes.io/docs/tasks/administer-cluster/kubeadm/kubeadm-upgrade-1-14/)
-* [Facilitate operating system upgrades.](https://kubernetes.io/docs/tasks/administer-cluster/cluster-management/#maintenance-on-a-node)
-* [Implement backup and restore methodologies.](https://elastisys.com/2018/12/10/backup-kubernetes-how-and-why/)
+* Understand Kubernetes cluster upgrade process. [![en](../icons/united-kingdom.png)](https://kubernetes.io/docs/tasks/administer-cluster/cluster-management/#upgrading-a-cluster)
+   * Kubeadm upgrade [![en](../icons/united-kingdom.png)](https://kubernetes.io/docs/reference/setup-tools/kubeadm/kubeadm-upgrade/) 
+   * Kubeadm Upgrade 1.14 [![en](../icons/united-kingdom.png)](https://kubernetes.io/docs/tasks/administer-cluster/kubeadm/kubeadm-upgrade-1-14/) 
+* Facilitate operating system upgrades. [![en](../icons/united-kingdom.png)](https://kubernetes.io/docs/tasks/administer-cluster/cluster-management/#maintenance-on-a-node) 
+* Implement backup and restore methodologies. [![en](../icons/united-kingdom.png)](https://elastisys.com/2018/12/10/backup-kubernetes-how-and-why/) 
 
 ## Extra Links
 * [Backup and Restore a Kubernetes Master with Kubeadm](https://labs.consol.de/kubernetes/2018/05/25/kubeadm-backup.html)
 
-### Exercice
+### Exercise
 
 1. Create a kubernetes cluster version 1.14 using kubeadm. The architecture of the cluster is: 1 node-plane and 2 slaves-nodes.
     <details><summary>show</summary>
@@ -43,7 +43,7 @@
     sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
     sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
-    # Install the newtork pluging (e.g weave)
+    # Install the network plugin (e.g weave)
     kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
 
     Then you can join any number of worker nodes by running the following on each as root:
@@ -87,7 +87,7 @@
     </p>
     </details>
 
-1. Get the pods details using -o wide 
+1. Get the pods details using -o wide.
     <details><summary>show</summary>
     <p>
 
@@ -106,7 +106,7 @@
     </p>
     </details>
 
-1. Expose the deployment using the port 80
+1. Expose the deployment using the port 80.
     <details><summary>show</summary>
     <p>
 
@@ -227,7 +227,7 @@
     </p>
     </details>
 
-1. Restore the etcd backup
+1. Restore the etcd backup.
     <details><summary>show</summary>
     <p>
 
@@ -243,135 +243,3 @@
 
     </p>
     </details>
-
-1. HOLI
-    <details><summary>show</summary>
-    <p>
-
-    ```bash
-    solution
-    ```
-
-    </p>
-    </details>
-
-1. HOLI
-    <details><summary>show</summary>
-    <p>
-
-    ```bash
-    solution
-    ```
-
-    </p>
-    </details>
-
-1. HOLI
-    <details><summary>show</summary>
-    <p>
-
-    ```bash
-    solution
-    ```
-
-    </p>
-    </details>
-
-1. HOLI
-    <details><summary>show</summary>
-    <p>
-
-    ```bash
-    solution
-    ```
-
-    </p>
-    </details>
-
-1. HOLI
-    <details><summary>show</summary>
-    <p>
-
-    ```bash
-    solution
-    ```
-
-    </p>
-    </details>
-
-1. HOLI
-    <details><summary>show</summary>
-    <p>
-
-    ```bash
-    solution
-    ```
-
-    </p>
-    </details>
-
-1. HOLI
-    <details><summary>show</summary>
-    <p>
-
-    ```bash
-    solution
-    ```
-
-    </p>
-    </details>
-
-1. HOLI
-    <details><summary>show</summary>
-    <p>
-
-    ```bash
-    solution
-    ```
-
-    </p>
-    </details>
-
-1. HOLI
-    <details><summary>show</summary>
-    <p>
-
-    ```bash
-    solution
-    ```
-
-    </p>
-    </details>
-
-1. HOLI
-    <details><summary>show</summary>
-    <p>
-
-    ```bash
-    solution
-    ```
-
-    </p>
-    </details>
-
-1. HOLI
-    <details><summary>show</summary>
-    <p>
-
-    ```bash
-    solution
-    ```
-
-    </p>
-    </details>
-
-1. HOLI
-    <details><summary>show</summary>
-    <p>
-
-    ```bash
-    solution
-    ```
-
-    </p>
-    </details>     

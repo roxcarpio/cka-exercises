@@ -1,23 +1,23 @@
 # Security (12%)
 
 ## Curriculum
-* Know how to configure [authentication](https://kubernetes.io/docs/reference/access-authn-authz/authentication/) and [authorization](https://kubernetes.io/docs/reference/access-authn-authz/authorization/).  
-    * [Using RBAC Authorization.](https://kubernetes.io/docs/reference/access-authn-authz/rbac/)
-    * [Using ABAC Authorization.](https://kubernetes.io/docs/reference/access-authn-authz/abac/)
-    * [Using Node Authorization.](https://kubernetes.io/docs/reference/access-authn-authz/node/)
-* [Understand Kubernetes security primitives.](https://kubernetes.io/docs/concepts/policy/pod-security-policy/)
-* [Know to configure network policies.](https://kubernetes.io/docs/concepts/services-networking/network-policies/)
-* [Create and manage TLS certificates for cluster components.](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet-tls-bootstrapping/)
-* [Work with images securely.](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/)
-* [Define security contexts.](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/) 
-* [Secure persistent key value store.](https://kubernetes.io/docs/tasks/administer-cluster/configure-upgrade-etcd/)
+* Know how to configure authentication [![en](../icons/united-kingdom.png)](https://kubernetes.io/docs/reference/access-authn-authz/authentication/) and authorization. [![en](../icons/united-kingdom.png)](https://kubernetes.io/docs/reference/access-authn-authz/authorization/) 
+    * Using RBAC Authorization. [![en](../icons/united-kingdom.png)](https://kubernetes.io/docs/reference/access-authn-authz/rbac/)
+    * Using ABAC Authorization. [![en](../icons/united-kingdom.png)](https://kubernetes.io/docs/reference/access-authn-authz/abac/)
+    * Using Node Authorization. [![en](../icons/united-kingdom.png)](https://kubernetes.io/docs/reference/access-authn-authz/node/)
+* Understand Kubernetes security primitives. [![en](../icons/united-kingdom.png)](https://kubernetes.io/docs/concepts/policy/pod-security-policy/)
+* Know to configure network policies. [![en](../icons/united-kingdom.png)](https://kubernetes.io/docs/concepts/services-networking/network-policies/)
+* Create and manage TLS certificates for cluster components. [![en](../icons/united-kingdom.png)](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet-tls-bootstrapping/)
+* Work with images securely. [![en](../icons/united-kingdom.png)](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/)
+* Define security contexts. [![en](../icons/united-kingdom.png)](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/)
+* Secure persistent key value store. [![en](../icons/united-kingdom.png)](https://kubernetes.io/docs/tasks/administer-cluster/configure-upgrade-etcd/)
 
 ## Extra Links
-* [Kubernetes Network Policy Recipes](https://github.com/ahmetb/kubernetes-network-policy-recipes)
-* [Setting Up Pod Security Policies](https://octetz.com/posts/setting-up-psps)
+* [Kubernetes Network Policy Recipes.](https://github.com/ahmetb/kubernetes-network-policy-recipes)
+* [Setting Up Pod Security Policies.](https://octetz.com/posts/setting-up-psps)
 
 
-## Exercices
+## Exercises
 
 1. Create a service account called sa-security-example.
     <details><summary>show</summary>
@@ -102,7 +102,7 @@
     mkdir -p /etc/kubernetes/static-users
     mkdir -p $HOME/static-exercice
 
-    # Copy the ca k8s certifate in static-exercice folder
+    # Copy the ca k8s certificate in static-exercice folder
     cp /etc/kubernetes/pki/ca.* $HOME/static-exercice
 
     # Create a csv file in the static-exercice folder with the user details [password,user,uid,"group1,group2,group3"]
@@ -397,7 +397,7 @@
     kubectl exec ui-prod -n ui-production -- sh -c 'wget -qO- --timeout=2 http://backend-dev.development:80' # Traffic is blocked
 
     # Crete the network policy
-    vim nampespace-allow.yaml
+    vim namespace-allow.yaml
     
     kind: NetworkPolicy
     apiVersion: networking.k8s.io/v1
@@ -493,7 +493,7 @@
     </details>
 
 1. Create a PodSecurityPolicy in the psp namespace that restricts the use of `hostPath` volumes and allows confimaps as volumes.
-    > _Tipp:_ Enable the **PodSecurityPolicy** admission controller for this exercice
+    > _Tipp:_ Enable the **PodSecurityPolicy** admission controller for this exercice.
 
     <details><summary>show</summary>
     <p>

@@ -2,14 +2,14 @@
 
 
 ## Curriculum
-* [Understand how to monitor all cluster components.](https://kubernetes.io/docs/tasks/debug-application-cluster/resource-usage-monitoring/)
+* Understand how to monitor all cluster components. [![en](../icons/united-kingdom.png)](https://kubernetes.io/docs/tasks/debug-application-cluster/resource-usage-monitoring/)
 * Understand how to monitor applications.
-* [Manage cluster component logs.](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-cluster/#looking-at-logs)
-* [Manage application logs.](https://kubernetes.io/docs/concepts/cluster-administration/logging/)
+* Manage cluster component logs. [![en](../icons/united-kingdom.png)](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-cluster/#looking-at-logs)
+* Manage application logs. [![en](../icons/united-kingdom.png)](https://kubernetes.io/docs/concepts/cluster-administration/logging/)
 
-### Exercice
+### Exercise
 
-1. Install the Kubernetes Metrics Server
+1. Install the Kubernetes Metrics Server.
     <details><summary>show</summary>
     <p>
 
@@ -105,7 +105,7 @@
     </p>
     </details>
 
-1. Create the following pod. Print Logs for a Container in a Pod
+1. Create the following pod. Print Logs for a Container in a Pod.
 
     ```bash
     kubectl create -f https://raw.githubusercontent.com/roxcarpio/cka-exercises/master/exercices/b.logging_monitoring/log-pod.yaml
@@ -121,7 +121,7 @@
     </p>
     </details>
 
-1. Printing only the logs since 30s
+1. Printing only the logs since 30s.
     <details><summary>show</summary>
     <p>
 

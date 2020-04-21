@@ -1,14 +1,14 @@
 # Storage (7%)
 
 ## Curriculum
-* [Understand PersistentVolumeClaims for storage](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistent-volumes)
-* [Understand persistent volumes and know how to create them](https://kubernetes.io/docs/concepts/storage/persistent-volumes/)
-* [Understand access modes for volumes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes)
-* [Understand persistent volume claims primitive](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistentvolumeclaims)
-* [Understand Kubernetes storage objects](https://kubernetes.io/docs/concepts/storage/volumes/#types-of-volumes)
-* [Know how to configure applications with persistent storage](https://kubernetes.io/docs/tasks/configure-pod-container/configure-volume-storage/)
+* Understand PersistentVolumeClaims for storage. [![en](../icons/united-kingdom.png)](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistent-volumes)
+* Understand persistent volumes and know how to create them. [![en](../icons/united-kingdom.png)](https://kubernetes.io/docs/concepts/storage/persistent-volumes/)
+* Understand access modes for volumes. [![en](../icons/united-kingdom.png)](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes)
+* Understand persistent volume claims primitive. [![en](../icons/united-kingdom.png)](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistentvolumeclaims)
+* Understand Kubernetes storage objects. [![en](../icons/united-kingdom.png)](https://kubernetes.io/docs/concepts/storage/volumes/#types-of-volumes)
+* Know how to configure applications with persistent storage. [![en](../icons/united-kingdom.png)](https://kubernetes.io/docs/tasks/configure-pod-container/configure-volume-storage/) [![es](../icons/spain.png)](https://kubernetes.io/es/docs/tasks/configure-pod-container/configure-volume-storage/)
 
-### Exercice
+### Exercise
 
 1. Create a configmap called config-volume from a literal value. Add the ConfigMap name under the volumes section of the Pod specification (/cm-vol).
     <details><summary>show</summary>
@@ -46,7 +46,7 @@
     </details>
 
 
-1. Create a pod with a emptyDir volume in path /etc/empty using the nginx image
+1. Create a pod with a emptyDir volume in path /etc/empty using the nginx image.
     <details><summary>show</summary>
     <p>
 
@@ -169,7 +169,8 @@
     <p>
 
     ```bash
-    TBC
+    ssh nodeX
+    mkdir /tmp/host-created
     ```
 
     </p>
@@ -211,7 +212,7 @@
     </details>
 
 
-1. Change the user field of the previous secret and check that the new data has been transfered to the pod. 
+1. Change the user field of the previous secret and check that the new data has been transferred to the pod. 
 
      New user: eve
     ```bash
@@ -246,7 +247,7 @@
     </p>
     </details>
 
-1. HOLA
+1. Use the secret created in the previous step and mount the user key in "/tmp/users" and the password key in "/tmp/passwords" as files.
     <details><summary>show</summary>
     <p>
 

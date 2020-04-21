@@ -1,12 +1,11 @@
 # Networking (11%)
 
-* [Understand the networking configuration on the cluster nodes.](https://kubernetes.io/docs/concepts/cluster-administration/networking/)
+* Understand the networking configuration on the cluster nodes. [![en](../icons/united-kingdom.png)](https://kubernetes.io/docs/concepts/cluster-administration/networking/)
 * Understand Pod networking concepts.
-* [Understand service networking.](https://kubernetes.io/docs/concepts/services-networking/service/)
-* [Deploy and configure network load balancer.](https://kubernetes.io/docs/tasks/access-application-cluster/create-external-load-balancer/)
-* [Know how to use Ingress rules.](https://kubernetes.io/docs/concepts/services-networking/ingress/)
-* [Know how to configure and use the cluster DNS.](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/)
-* [Understand CNI.](http://www.dasblinkenlichten.com/understanding-cni-container-networking-interface/)
+* Understand service networking. [![en](../icons/united-kingdom.png)](https://kubernetes.io/docs/concepts/services-networking/service/)
+* Know how to use Ingress rules. [![en](../icons/united-kingdom.png)](https://kubernetes.io/docs/concepts/services-networking/ingress/)
+* Know how to configure and use the cluster DNS. [![en](../icons/united-kingdom.png)](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/)
+* Understand CNI. [![en](../icons/united-kingdom.png)](http://www.dasblinkenlichten.com/understanding-cni-container-networking-interface/)
  
 ### Extra Links
 * [How Kubernetes Networking Works – The Basics](https://neuvector.com/network-security/kubernetes-networking/)
@@ -18,7 +17,7 @@
 * check the configuration por pods and servces ip
 * Create an endpoint
 
-### Exercice
+### Exercise
 
 1. Check the port range that it is possible to use in your cluster.
     <details><summary>show</summary>
@@ -215,7 +214,7 @@
     </p>
     </details>
 
-1. Check your pods’ IPs, You should be able to ssh into any node in your cluster and curl both IPs
+1. Check your pods’ IPs, You should be able to ssh into any node in your cluster and curl both IPs.
     <details><summary>show</summary>
     <p>
 
@@ -253,7 +252,7 @@
 
     </p>
     </details>  
-1. IP address assigned to the master node
+1. IP address assigned to the master node.
     <details><summary>show</summary>
     <p>
 
@@ -263,7 +262,7 @@
 
     </p>
     </details>  
-1. Ip address assigned to the node02
+1. Ip address assigned to the node02.
     <details><summary>show</summary>
     <p>
 
@@ -273,7 +272,7 @@
 
     </p>
     </details>  
-1. What is the infoerface/bridge created by docker on this host
+1. What is the interface/bridge created by docker on this host
     <details><summary>show</summary>
     <p>
 
@@ -306,7 +305,7 @@
     </p>
     </details>   
 
-1. What is the port the kube-proxy is listinig on in the master node?
+1. What is the port the kube-proxy is listing on in the master node?
     <details><summary>show</summary>
     <p>
 
@@ -339,19 +338,6 @@ root      1621  2.7  4.9 833032 101036 ?       Ssl  15:08   0:20 /usr/bin/kubele
 
     </p>
     </details>                   
-
-
-
-1. Identify the name of the bridge network/interface created by weave on each node
-    <details><summary>show</summary>
-    <p>
-
-    ```bash
-    ip link
-    ```
-
-    </p>
-    </details>
 
 
 1. What is the POD IP address range configured by weave?
@@ -411,38 +397,3 @@ root      1621  2.7  4.9 833032 101036 ?       Ssl  15:08   0:20 /usr/bin/kubele
 
     </p>
     </details>
-
-1. HOLA
-    <details><summary>show</summary>
-    <p>
-
-    ```bash
-    solution
-    ```
-
-    </p>
-    </details>
-
-1. HOLA
-    <details><summary>show</summary>
-    <p>
-
-    ```bash
-    solution
-    ```
-
-    </p>
-    </details>
-
-1. Ingress exerecices
-    <details><summary>show</summary>
-    <p>
-
-    ```bash
-    solution
-    ```
-
-    </p>
-    </details>                
-
-

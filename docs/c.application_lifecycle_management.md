@@ -1,20 +1,20 @@
 # Application Lifecycle Management (8%)
 
 ## Curriculum
-* [Understand Deployments and how to perform rolling updates and rollbacks.](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)
+* Understand Deployments and how to perform rolling updates and rollbacks. [![en](../icons/united-kingdom.png)](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)
 * Know various ways to configure applications.
-    * [ConfigMaps](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/)
-    * [Application's resources.](https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/)
-    * [Secrets](https://kubernetes.io/docs/concepts/configuration/secret/)
-    * [Service Accounts](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/)
-    * [Environment variables](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/)
-* [Know how to scale applications.](https://kubernetes.io/docs/concepts/cluster-administration/manage-deployment/#scaling-your-application)
-* [Understand the primitives necessary to create a self-healing application.](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes)
-    * [ReplicaSet](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/)
+    * ConfigMaps. [![en](../icons/united-kingdom.png)](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/)
+    * Application's resources. [![en](../icons/united-kingdom.png)](https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/)
+    * Secrets. [![en](../icons/united-kingdom.png)](https://kubernetes.io/docs/concepts/configuration/secret/)
+    * Service Accounts. [![en](../icons/united-kingdom.png)](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/)
+    * Environment variables. [![en](../icons/united-kingdom.png)](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/)
+* Know how to scale applications. [![en](../icons/united-kingdom.png)](https://kubernetes.io/docs/concepts/cluster-administration/manage-deployment/#scaling-your-application)
+* Understand the primitives necessary to create a self-healing application. [![en](../icons/united-kingdom.png)](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes)
+    * ReplicaSet. [![en](../icons/united-kingdom.png)](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/)
 
 ## Extra Links
 
-## Exercices
+## Exercises
 
 1. Create a deployment with 3 replicas called nginx-test using the nginx 1.7.1 docker image.
     <details><summary>show</summary>
@@ -146,7 +146,7 @@
     </p>
     </details>  
 
-1. Auto scale the nginx-test deployment, with the number of pods between 1 and 5, target CPU utilization at 30%:
+1. Auto scale the nginx-test deployment, with the number of pods between 1 and 5, target CPU utilization at 30%.
     <details><summary>show</summary>
     <p>
 
@@ -172,7 +172,7 @@
     </p>
     </details> 
 
-1. Set to 2 the `.spec.revisionHistoryLimit` parameter in order to retaing only 2 rs.
+1. Set to 2 the `.spec.revisionHistoryLimit` parameter in order to retain only 2 rs.
     <details><summary>show</summary>
     <p>
 
@@ -256,7 +256,7 @@
     </p>
     </details>    
 
-1. Modify the previous configmap (e.g change the LICENSE file). Check that the file has been updated automatically in the nginx pod. Remove the configmap and the pod
+1. Modify the previous configmap (e.g change the LICENSE file). Check that the file has been updated automatically in the nginx pod. Remove the configmap and the pod.
 
     <details><summary>show</summary>
     <p>
@@ -392,7 +392,7 @@
     </p>
     </details> 
 
-1. Mount the previous configmap as enviroment varibles.
+1. Mount the previous configmap as environment variables.
     <details><summary>show</summary>
     <p>
 
@@ -595,7 +595,7 @@ Note that the JSON spec doesn’t support octal notation, therefore, translate t
       <p>
 
       ```bash
-      echo -n 'alien' | base64 # Enconde alien --> YWxpZW4=
+      echo -n 'alien' | base64 # Encode alien --> YWxpZW4=
 
       # Create a secret file
       vim secret.yaml
